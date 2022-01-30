@@ -41,12 +41,12 @@ else
 
     echo "OK"
     echo "Slicing planet for Jan 1 ${YEAR}..."
-    osmium time-filter --progress -o ${YEAR}.osm.pbf history.osh.pbf ${YEAR}-01-01T00:00:00Z 
+    osmium time-filter --progress -o ${YEAR}.osm.pbf ${OSM_FILE} ${YEAR}-01-01T00:00:00Z 
     echo "Creating Docker volumes..."
     docker volume create openstreetmap-data-${YEAR}
     docker volume create openstreetmap-tiles-${YEAR}
     echo "Creating Docker container and importing ${YEAR} data. This will take minutes to hours..."
-    docker run -v ${BASEDIR}/2006.osm.pbf:/data.osm.pbf -v openstreetmap-data-${YEAR}:/var/lib/postgresql/12/main -v openstreetmap-tiles-${YEAR}:/var/lib/mod_tile overv/openstreetmap-tile-server import >/dev/null 2>&1
+    docker run -v ${BASEDIR}/${YEAR}.osm.pbf:/data.osm.pbf -v openstreetmap-data-${YEAR}:/var/lib/postgresql/12/main -v openstreetmap-tiles-${YEAR}:/var/lib/mod_tile overv/openstreetmap-tile-server import >/dev/null 2>&1
     echo "Starting Container..."
     docker run -p ${PORT}:80 -v openstreetmap-data-${YEAR}:/var/lib/postgresql/12/main -v openstreetmap-tiles-${YEAR}:/var/lib/mod_tile -d overv/openstreetmap-tile-server run
     echo "Done. Please visit http://localhost:${PORT} to enjoy your vintage tiles."
