@@ -28,6 +28,14 @@ Call the script with two arguments:
 
 This example will take `/path/to/history.osh.pbf`, create a 2008-01-01 vintage planet, set up a tile server with that data, and expose it at port 8008. (The port will be 6000 + the year you choose.)
 
+## Bonus: Side By Side HTML
+
+![](https://i.imgur.com/UJOTp1B.png)
+
+To see the tiles from your new vintage server side by side with the live OSM tiles, you can use the HTML + JS included in the `html/` subdirectory. Just change the URL in [this line](https://github.com/mvexel/openstreetmap-vintage-tile-server/blob/main/html/index.html#L63) to point to your own server and load `index.html` in your browser.
+
+This uses the [leaflet-hash](https://github.com/mlevans/leaflet-hash) and [leaflet-side-by-side](https://github.com/digidem/leaflet-side-by-side) plugins, which are included. Leaflet itself is loaded from a CDN.
+
 ## Credits
 
 * [osmium](https://osmcode.org/osmium-tool/) takes care of time-slicing the full history planet. It continues to blow my mind how fast this tool is and how much it can do.
