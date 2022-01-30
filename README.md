@@ -22,6 +22,8 @@ Call the script with two arguments:
 1. The full path to your history PBF
 2. The 4-digit year you want tiles for
 
+*With a default Docker installation on Linux, you will need to run the script as root. Never run random things from the internet as root. Don't trust me. Inspect the script and trust it.*
+
 `./osm-vintage-tile-server.sh /path/to/history.osh.pbf 2008`
 
 This example will take `/path/to/history.osh.pbf`, create a 2008-01-01 vintage planet, set up a tile server with that data, and expose it at port 8008. (The port will be 6000 + the year you choose.)
