@@ -30,7 +30,7 @@ This example will take `/path/to/history.osh.pbf`, create a 2008-01-01 vintage p
 
 ## Bonus: Side By Side HTML
 
-![](https://i.imgur.com/UJOTp1B.png)
+![](https://i.imgur.com/GoSlocR.mp4)
 
 To see the tiles from your new vintage server side by side with the live OSM tiles, you can use the HTML + JS included in the `html/` subdirectory. Just change the URL in [this line](https://github.com/mvexel/openstreetmap-vintage-tile-server/blob/main/html/index.html#L63) to point to your own server and load `index.html` in your browser.
 
