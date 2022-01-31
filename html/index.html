@@ -9,50 +9,19 @@
   <script src="leaflet-side-by-side.js"></script>
   <script src="leaflet-hash.js"></script>
   <link href='http://cdn.leafletjs.com/leaflet/v1.3.1/leaflet.css' rel='stylesheet' />
-  <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Helvetica, Arial, sans-serif;
-    }
-    #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-    }
-    #lilbox {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 10000;
-        background-color: #fffb;
-        /* color: #0008; */
-        padding: 10px 10px;
-        max-width: 350px;
-    }
-    #title {
-        font-size: 2.2em;
-        font-weight: bold;
-    }
-    #sub {
-       font-size: 0.9em;
-       text-align: center; 
-    }
-    #schmall {
-        margin-top: 4px;
-       font-size: 0.7em;
-       text-align: center; 
-    }
-    </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="lilbox">
-        <div id="title">OSM Then and Now</div>
-        <div id="sub">Explore OSM how it was in 2008 (left) and compare with how it is now (right). Use the slider to reveal more the one or the other. This is what a community of mappers can accomplish. If you enjoy using OpenStreetMap data, please consider a <a href="https://wiki.osmfoundation.org/wiki/Donate" target="_blank">donation to the OpenStreetMap Foundation</a>.</div>
-        <div id="schmall">A thing by Martijn van Exel, source and instructions how to roll your own <a href="https://github.com/mvexel/openstreetmap-vintage-tile-server" target="_blank">on Github</a></div>
+        <div id="title" onclick=collapse()>OSM Then and Now</div>
+        <div id="collapsible">
+            <div id="sub">Explore OSM how it was in 2008 (left) and compare with how it is now (right). Use the slider to reveal more the one or the other. This is what a community of mappers can accomplish. If you enjoy using OpenStreetMap data, please consider a <a href="https://wiki.osmfoundation.org/wiki/Donate" target="_blank">donation to the OpenStreetMap Foundation</a>.</div>
+            <div id="schmall">A thing by Martijn van Exel, source and instructions how to roll your own <a href="https://github.com/mvexel/openstreetmap-vintage-tile-server" target="_blank">on Github</a></div>
+        </div>
     </div>
     <div id='map'></div>
+    <div id='vintage-year-box'>2008</div>
+    <div id='current-year-box'>now</div>
     <script>
     var map = L.map('map').setView([51.505, -0.09], 13);
 
@@ -66,6 +35,11 @@
 
     L.control.sideBySide(vintageLayer, osmLayer).addTo(map);
     var hash = new L.Hash(map);    
+
+    function collapse() {
+        var e = document.getElementById("collapsible");
+        e.style.display = e.style.display == "block" ? "none" : "block";
+    }
 </script>
 </body>
 </html>
