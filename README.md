@@ -32,7 +32,7 @@ This example will take `/path/to/history.osh.pbf`, create a 2008-01-01 vintage p
 
 ![](https://i.imgur.com/rp7L5eA.png)
 
-To see the tiles from your new vintage server side by side with the live OSM tiles, you can use the HTML + JS included in the `html/` subdirectory. Just change the URL in [this line](https://github.com/mvexel/openstreetmap-vintage-tile-server/blob/main/html/index.html#L34) to point to your own server and load `index.html` in your browser.
+To see the tiles from your new vintage server side by side with the live OSM tiles, you can use the HTML + JS included in the `html/` subdirectory. Just change the URL in [this line](https://github.com/mvexel/openstreetmap-vintage-tile-server/blob/main/html/index.html#L43) to point to your own server and load `index.html` in your browser.
 
 This uses the [leaflet-hash](https://github.com/mlevans/leaflet-hash) and [leaflet-side-by-side](https://github.com/digidem/leaflet-side-by-side) plugins, which are included. Leaflet itself is loaded from a CDN.
 
