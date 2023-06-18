@@ -2,6 +2,8 @@
 
 ![](https://i.imgur.com/9XW6ql4.png)
 
+**If you're reading this on Github: this repository lives on [at SourceHut](https://git.sr.ht/~mvexel/openstreetmap-vintage-tile-server) and will only be updated there after June 18, 2023.**
+
 Ever long for the good old days when OSM was formless and void?
 
 Now you can with a one-liner!
