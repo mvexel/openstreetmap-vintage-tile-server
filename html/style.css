@@ -19,30 +19,21 @@ body {
     background-color: #fffb;
     color: black;
     padding: 10px 10px;
-    width: 300px;
+    width: 325px;
 }
 
 #title {
-    font-size: 1.6em;
-    /* font-weight: bold; */
+    font-size: 1.4em;
     text-align: center;
     text-decoration: underline;
     text-underline-offset: 4px;
+    margin-bottom: 10px;
 }
 
-#title:hover {
-    cursor: pointer;
-}
-
-#collapsible {
-    padding-top: 10px;
-    position: relative;
-    display: none;
-}
 
 #sub {
-   font-size: 0.8em;
-   text-align: center; 
+    font-size: 0.7em;
+    text-align: center; 
 }
 
 #schmall {
@@ -71,4 +62,65 @@ body {
     color: black;
     padding: 10px 10px;
     font-size: 1.6em;
+}
+
+/*SHARE STUFF*/
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.share-button {
+    font-size: 0.7em;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+    background-color: #0056b3;
+}
+
+.share-button:active {
+    background-color: #004085;
+}
+
+.share-button:link, .share-button:visited {
+    color: white;
+}
+
+.share-button + .share-button {
+    margin-left: 0;
+}
+
+#copy-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#copy-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.hidden {
+    display: none;
 }

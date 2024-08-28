@@ -17,38 +17,39 @@
 
 <body>
     <div id="lilbox">
-        <div id="title" onclick=collapse()>OSM Then and Now</div>
-        <div id="collapsible">
-            <div id="sub">Explore OSM how it was in 2008 (left) and compare with how it is now (right). Use the slider
-                to reveal more the one or the other. This is what a community of mappers can accomplish. If you enjoy
-                using OpenStreetMap data, please consider a <a href="https://wiki.osmfoundation.org/wiki/Donate"
-                    target="_blank">donation to the OpenStreetMap Foundation</a>.</div>
-            <div id="schmall">A thing by Martijn van Exel, source and instructions how to roll your own <a
-                    href="https://github.com/mvexel/openstreetmap-vintage-tile-server" target="_blank">on Github</a>.
-                <strong>This site is currently broken on Safari, see <a
-                        href="https://github.com/mvexel/thenandnow/issues/10" target="_blank">this ticket</a>.</strong>
-            </div>
+        <div id="title">OSM Then and Now</div>
+        <div id="sub">Explore OSM how it was in 2008 (left) and compare with how it is now (right). Use the slider
+            to reveal more of the one or the other.<br>Help me keep this website up by <a href="https://buymeacoffee.com/3lqho1lkks">supporting me</a> with a few bucks. Thanks!</div>
+        <div class="share-buttons">
+            <button class="share-button" onclick="copyToClipboard()">Copy Link</button>
+            <a class="share-button" href="#" onclick="shareToSocial('twitter')">Share on Twitter</a>
+            <a class="share-button" href="#" onclick="shareToSocial('linkedin')">Share on LinkedIn</a>
+        </div>
+        <div id="copy-notification" class="hidden">Link copied to clipboard!</div>
         </div>
     </div>
     <div id='map'></div>
     <div id='vintage-year-box'>2008</div>
     <div id='current-year-box'>now</div>
     <script>
-        var map = L.map('map').setView([1.3227, 103.8498], 13);
+        const initialCenter = [36.0939, -95.8455];
+        const initialZoom = 14;
+        
+        var map = L.map('map').setView([36.0939, -95.8455], 14);
+
+        // Enable URL hash for permalinks
+        var hash = new L.Hash(map);
 
         var osmLayer = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap<\/a> contributors'
         }).addTo(map);
 
-        var vintageLayer = L.tileLayer('http://localhost:8008/tile/{z}/{x}/{y}.png', {
+        var vintageLayer = L.tileLayer('https://2008.osm.lol/tile/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap<\/a> contributors'
         }).addTo(map)
 
         // Enable side by side control
         L.control.sideBySide(vintageLayer, osmLayer).addTo(map);
-
-        // Enable URL hash for permalinks
-        var hash = new L.Hash(map);
 
         // Configure and add geocoder control
         var control = L.control.geonames({
@@ -59,11 +60,46 @@
         });
         map.addControl(control);
 
-        function collapse() {
-            var e = document.getElementById("collapsible");
-            e.style.display = e.style.display == "block" ? "none" : "block";
+        function copyToClipboard() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showCopyNotification();
+            }).catch(err => {
+                console.error('Failed to copy the link: ', err);
+            });
         }
+
+        function showCopyNotification() {
+            const notification = document.getElementById('copy-notification');
+            notification.classList.remove('hidden');
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.classList.add('hidden');
+                }, 500);  // Delay to allow the fade-out effect
+            }, 2000);  // Visible duration of the notification
+        }
+
+        function shareToSocial(platform) {
+            const url = encodeURIComponent(window.location.href);
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
+                    break;
+                default:
+                    return;
+            }
+
+            window.open(shareUrl, '_blank', 'width=600,height=800');
+        }
+
     </script>
 </body>
-
 </html>
