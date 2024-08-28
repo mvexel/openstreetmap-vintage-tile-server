@@ -1,0 +1,3 @@
+The data you see on this website will not represent the map exactly how it was on Jan 1, 2008. This note explains why. I will fix this soon.
+
+When OSM changed its data license from Creative Commons to ODbL, data from contributors who did opt in to their data being licensed under ODbL had to be removed for OSM to be compliant with this new license. The data that was removed will not be visible on this map either, because the data this map was created from was sourced from a file that does not create this redacted data. There are data files that do contain the redacted data, but they require older versions of OSM tooling to process them into a visual map.
