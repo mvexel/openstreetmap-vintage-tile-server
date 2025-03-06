@@ -1,6 +1,6 @@
 # OpenStreetMap Vintage Tile Server
 
-## [Demo server](https://osm.lol/)
+## [Demo server](https://2008.osm.lol/)
 
 **Please help support running costs of the demo server ($40/month, mostly storage cost)** Click the Patreon link on the right to learn more.
 
