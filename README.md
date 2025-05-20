@@ -1,8 +1,12 @@
 # OpenStreetMap Vintage Tile Server
 
-## [Demo server](https://2008.osm.lol/)
+## We are on Sourcehut
+If you are reading this notice on Github, please point your bookmarks and git remotes at the `osm-vintage-tiles` repo [on Sourcehut](https://git.sr.ht/~mvexel/osm-vintage-tiles) instead. This project will not be updated on Github.
 
-**Please help support running costs of the demo server ($40/month, mostly storage cost)** Click the Patreon link on the right to learn more.
+---
+
+
+## [Demo server](https://2008.osm.lol/)
 
 Ever long for the good old days when OSM was formless and void?
 
