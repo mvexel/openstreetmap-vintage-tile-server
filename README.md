@@ -1,9 +1,7 @@
 # OpenStreetMap Vintage Tile Server
 
-## We are on Sourcehut
-If you are reading this notice on Github, please point your bookmarks and git remotes at the `osm-vintage-tiles` repo [on Sourcehut](https://git.sr.ht/~mvexel/osm-vintage-tiles) instead. This project will not be updated on Github.
-
-See my [profile](https://sr.ht/~mvexel/) for links to discussions and tickets.
+## We are on Codeberg
+If you are reading this notice on Github, please point your bookmarks and git remotes at the `openstreetmap-vintage-tile-server` repo [on Codeberg](https://codeberg.org/mvexel/openstreetmap-vintage-tile-server) instead. This project will not be updated on Github.
 
 ---
 
